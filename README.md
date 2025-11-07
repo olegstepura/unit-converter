@@ -1,104 +1,160 @@
 # 🌐 Unit Converter – Flask Web App
 
-A simple yet powerful unit conversion web app built with **Python** and **Flask**. This tool allows you to quickly convert between common units across multiple categories using a clean, user-friendly interface.
+A modern unit conversion web application built with **Python**, **Flask**, and **WebSockets** for real-time conversions. Features a clean, user-friendly interface with internationalization support.
 
 ---
 
 ## 🌍 Live Demo
 
-🔗 Try it now on Vercel: [Click here to open the Unit Converter](https://unit-converter-rk77.vercel.app/Home?filename=index.html)
+🔗 Try it now: [Unit Converter](https://unit-converter-olegstepura.vercel.app)
 
 ---
 
-## 🚀 About This Converter
+## ✨ Features
 
-This application is designed to help you convert between various units of measurement **quickly and accurately**. Whether you're working with length, mass, time, or data storage, this tool is built to make unit conversions effortless and educational.
+* ⚡ **Real-time Conversions** – Powered by WebSockets for instant results
+* 🌍 **Multi-language Support** – Available in English, Russian, German, and Chinese
+* 📏 **10+ Conversion Categories** – Length, Mass, Time, Temperature, Speed, Volume, Area, Data Storage, Energy, Pressure
+* 🔧 **Utility Tools** – URL Encode/Decode and Base64 Encode/Decode
+* 🎨 **Modern UI** – Clean, responsive design with Ghibli-inspired styling
+* 🐳 **Docker Ready** – Containerized for easy deployment
 
 ---
 
 ## 🔄 Supported Conversion Categories
 
-- 📏 **Length / Distance**
-- ⚖️ **Mass / Weight**
-- ⏱ **Time**
-- 🌡 **Temperature**
-- 🚗 **Speed**
-- 🧪 **Volume**
-- 🧱 **Area**
-- 💾 **Data Storage**
-- 🔋 **Energy**
-- 🌬 **Pressure**
-
-Each category provides commonly used units and accurate conversion logic.
+* 📏 **Length / Distance** – mm, cm, m, km, in, ft, yd, mi
+* ⚖️ **Mass / Weight** – mg, g, kg, tonne, oz, lb, stone
+* ⏱ **Time** – seconds, minutes, hours, days, weeks, months, years
+* 🌡 **Temperature** – Celsius, Fahrenheit, Kelvin
+* 🚗 **Speed** – m/s, km/h, mph, knots
+* 🧪 **Volume** – ml, L, cc, m³, tsp, tbsp, fl oz, cups, pints, gallons
+* 🧱 **Area** – m², km², ft², yd², acre, hectare
+* 💾 **Data Storage** – bit, byte, KB, MB, GB, TB
+* 🔋 **Energy** – J, kJ, cal, kcal, Wh, kWh
+* 🌬 **Pressure** – Pa, bar, atm, mmHg, psi
 
 ---
 
 ## 🛠 Built With
 
-- 🐍 **Python 3**
-- 🌐 **Flask (Backend Framework)**
-- 🧾 **HTML5**
-- 🔁 **Jinja2 Templating (for dynamic rendering)**
+* 🐍 **Python 3.11**
+* 🌐 **Flask 3.1.0** – Web framework
+* 🔌 **Flask-SocketIO 5.3.6** – WebSocket support for real-time conversions
+* 🌍 **Flask-Babel 4.0.0** – Internationalization (i18n)
+* 🐳 **Docker** – Containerization
+* 🚀 **Gunicorn** – Production WSGI server
+* 🧾 **HTML5, CSS3, JavaScript** – Frontend
 
 ---
 
-## 💡 Inspiration
+## 🚀 Getting Started
 
-Built as a hands-on project to demonstrate Flask routing, modular Python code, and dynamic templates in action. Perfect for learners looking to understand full-stack development with Python.
+### Prerequisites
+
+* Python 3.11+
+* Docker (optional, for containerized deployment)
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/olegstepura/unit-converter.git
+   cd unit-converter
+   ```
+
+2. **Install dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. **Compile translations** (optional, for i18n)
+   ```bash
+   ./compile_translations.sh
+   ```
+
+4. **Run the application**
+   ```bash
+   python app.py
+   ```
+
+   The app will be available at `http://localhost:5000`
+
+### Docker Deployment
+
+```bash
+docker build -t unit-converter .
+docker run -p 5000:5000 unit-converter
+```
 
 ---
 
-## 🤝 Contribute
+## 🌍 Internationalization
 
-Contributions are welcome and appreciated! Whether you're a seasoned developer or just getting started, your ideas and improvements can help make this tool even better.
+The application supports multiple languages:
+* 🇺🇸 English (en)
+* 🇷🇺 Russian (ru)
+* 🇩🇪 German (de)
+* 🇨🇳 Chinese (zh)
 
-### 💡 Ways to Contribute
-
-- 🐛 **Report Issues** – Found a bug or inaccurate conversion? Open an issue with a clear description and steps to reproduce it.
-- 🌟 **Suggest Enhancements** – Want to add a new unit category or improve the UI/UX? Share your ideas!
-- 🧩 **Submit Pull Requests** – Fix typos, clean up code, optimize logic, or add new features.
-
-### 🛠 Guidelines for Pull Requests
-
-1. Fork the repository and clone your fork locally.
-2. Create a new branch with a meaningful name (`feature/new-conversion`, `fix/temperature-bug`, etc.).
-3. Make your changes and commit with clear, concise messages.
-4. Push your branch and submit a pull request.
-5. Describe what you changed and why it improves the app.
-
-### 💬 Communication
-
-If you're unsure about where to start or need guidance:
-- Start a discussion under [Issues](https://github.com/Roushan-77/Unit-converter/issues)
-- Reach out via comments in a PR or suggestion thread
-
-Let’s collaborate to make this converter more helpful for everyone 🚀
+Language can be changed using the dropdown in the header. The preference is saved in the session.
 
 ---
 
-### 🖥 Git Commands Cheat Sheet
+## 📁 Project Structure
 
-#### Clone the repository
-```bash
-git clone https://github.com/Roushan-77/Unit-converter.git
+```
+unit-converter/
+├── unit_converter/          # Main application package
+│   ├── __init__.py          # Flask app initialization, SocketIO, Babel
+│   ├── route.py             # Routes and WebSocket handlers
+│   ├── length.py            # Length conversion logic
+│   ├── mass.py              # Mass conversion logic
+│   └── ...                  # Other conversion modules
+├── templates/               # Jinja2 templates
+│   ├── base.html            # Base template
+│   ├── index.html           # Home page
+│   └── *.html               # Conversion pages
+├── static/                  # Static files
+│   ├── css/                 # Stylesheets
+│   └── js/                  # JavaScript files
+├── translations/            # i18n translation files
+│   ├── ru/LC_MESSAGES/      # Russian translations
+│   ├── de/LC_MESSAGES/      # German translations
+│   └── zh/LC_MESSAGES/      # Chinese translations
+├── Dockerfile               # Docker configuration
+├── requirements.txt         # Python dependencies
+└── wsgi.py                  # WSGI entry point for production
 ```
 
-#### Create and switch to a new branch
-```bash
-git checkout -b feature/your-branch-name
-```
+---
 
-#### Add your changes
-```bash
-git add .
-```
+## 🤝 Contributing
 
-#### Commit with a meaningful message
-```bash
-git commit -m "Describe your changes here"
-```
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-#### Push your branch to your forked repo
-```bash
-git push origin feature/your-branch-name
-```
+### Ways to Contribute
+
+* 🐛 **Report Issues** – Found a bug or inaccurate conversion? Open an issue
+* 🌟 **Suggest Enhancements** – Want to add a new unit category or improve the UI/UX?
+* 🧩 **Submit Pull Requests** – Fix bugs, clean up code, or add new features
+
+---
+
+## 📝 License
+
+This project is open source and available for use and modification.
+
+---
+
+## 👤 Author
+
+**Oleg Stepura**
+
+* GitHub: [@olegstepura](https://github.com/olegstepura)
+
+---
+
+## 🙏 Acknowledgments
+
+* Original inspiration from [Roushan-77/Unit-converter](https://github.com/Roushan-77/Unit-converter)

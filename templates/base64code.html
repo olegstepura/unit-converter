@@ -24,11 +24,6 @@
     <label for="input-text">{{ _('Input') }}</label>
     <textarea id="input-text" rows="5" class="url-textarea"></textarea>
 
-    <div class="button-row">
-      <button id="convert-btn">{{ _('Convert') }}</button>
-      <button id="clear-btn">{{ _('Clear') }}</button>
-    </div>
-
     <label for="output-text">{{ _('Output') }}</label>
     <textarea id="output-text" rows="5" readonly class="url-textarea url-textarea-output"></textarea>
 
@@ -51,8 +46,6 @@
     const decodeBtn = document.getElementById('decode-btn');
     const inputText = document.getElementById('input-text');
     const outputText = document.getElementById('output-text');
-    const convertBtn = document.getElementById('convert-btn');
-    const clearBtn = document.getElementById('clear-btn');
     const resultMessage = document.getElementById('result-message');
     const descResult = document.getElementById('desc-result');
     const errorMessage = document.getElementById('error-message');
@@ -105,15 +98,7 @@
       }
     });
 
-    convertBtn.addEventListener('click', performConversion);
     inputText.addEventListener('input', performConversion);
-
-    clearBtn.addEventListener('click', function() {
-      inputText.value = '';
-      outputText.value = '';
-      resultMessage.style.display = 'none';
-      errorMessage.style.display = 'none';
-    });
   });
 </script>
 {% endblock scripts %}

@@ -1,6 +1,4 @@
 function initConverter(conversionType) {
-  const convertBtn = document.getElementById('convert-btn');
-  const clearBtn = document.getElementById('clear-btn');
   const fromUnit = document.getElementById('from-unit');
   const toUnit = document.getElementById('to-unit');
   const fromValue = document.getElementById('from-value');
@@ -46,15 +44,6 @@ function initConverter(conversionType) {
       from_value: value
     });
   }
-
-  convertBtn.addEventListener('click', performConversion);
-
-  clearBtn.addEventListener('click', function() {
-    fromValue.value = '';
-    toValue.value = '';
-    resultMessage.style.display = 'none';
-    errorMessage.style.display = 'none';
-  });
 
   fromValue.addEventListener('input', performConversion);
   fromUnit.addEventListener('change', performConversion);
