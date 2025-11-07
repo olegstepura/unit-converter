@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ session.get('language', 'en') }}">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,20 +14,35 @@
 <body>
   <header>
     <nav>
-      <a href="{{ url_for('Home_page', filename='index.html') }}">Home</a>
-      <a href="{{ url_for('About_page', filename='about.html') }}">About</a>    
+      <a href="{{ url_for('home') }}">{{ _('Home') }}</a>
+      <div class="language-switcher">
+        <form method="POST" action="{{ url_for('set_language') }}">
+          <select name="language" onchange="this.form.submit()">
+            <option value="en" {% if session.get('language', 'en') == 'en' %}selected{% endif %}>English</option>
+            <option value="ru" {% if session.get('language', 'en') == 'ru' %}selected{% endif %}>Русский</option>
+            <option value="de" {% if session.get('language', 'en') == 'de' %}selected{% endif %}>Deutsch</option>
+            <option value="zh" {% if session.get('language', 'en') == 'zh' %}selected{% endif %}>中文</option>
+          </select>
+        </form>
+      </div>
     </nav>
   </header>
   {% block body %}
     
   {% endblock body %}
-
-  <footer>
-    <div class="footer-container">
-      <p>&copy; {{ 2025 }} Unit Converter. All rights reserved.</p>
-    </div>
-  </footer>
   
-  
+  <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+  <script>
+    // Initialize Socket.IO connection with custom path
+    const socket = io({ path: '/convert' });
+    
+    // Translations for JavaScript
+    const translations = {
+      'error_occurred': {{ _('An error occurred during conversion')|tojson|safe }},
+      'enter_valid_number': {{ _('Please enter a valid number')|tojson|safe }}
+    };
+  </script>
+  {% block scripts %}
+  {% endblock scripts %}
 </body>
 </html>

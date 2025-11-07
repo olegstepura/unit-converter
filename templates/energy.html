@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    Energy converter
+    {{ _('Energy converter') }}
 {% endblock title %}
 
 {% block css %}
@@ -15,62 +15,54 @@
 {% block body %}
 <main>
   <section>
-    <h1 class="page-title">Energy Converter</h1>
-    <form method="POST" action="/Energy-page">
-      <div>
-        <label for="from-unit">From</label>
-        <select id="from-unit" name="from_unit">
-          <option value="1" {% if from_unit == '1' %}selected{% endif %}>Joules (J)</option>
-          <option value="2" {% if from_unit == '2' %}selected{% endif %}>Kilojoules (kJ)</option>
-          <option value="3" {% if from_unit == '3' %}selected{% endif %}>Calories (cal)</option>
-          <option value="4" {% if from_unit == '4' %}selected{% endif %}>Kilocalories (kcal)</option>
-          <option value="5" {% if from_unit == '5' %}selected{% endif %}>Watt-hour (Wh)</option>
-          <option value="6" {% if from_unit == '6' %}selected{% endif %}>Kilowatt-hour (kWh)</option>
-        </select>
-  
-        <input
-          type="text"
-          id="from-value"
-          name="from_value"
-          placeholder="Enter value"
-          required
-          value="{{ request.form.from_value if request.method == 'POST' else '' }}"
-        />
-  
-        <div class="button-row">
-          <button type="submit">Convert</button>
-          <a href="{{ url_for('Energy_page') }}">
-            <button type="button">Clear</button>
-          </a>
-        </div>
+    <h1 class="page-title">{{ _('Energy Converter') }}</h1>
+    <label for="from-unit">{{ _('From') }}</label>
+    <select id="from-unit">
+      <option value="1">{{ _('Joules (J)') }}</option>
+      <option value="2">{{ _('Kilojoules (kJ)') }}</option>
+      <option value="3">{{ _('Calories (cal)') }}</option>
+      <option value="4">{{ _('Kilocalories (kcal)') }}</option>
+      <option value="5">{{ _('Watt-hour (Wh)') }}</option>
+      <option value="6">{{ _('Kilowatt-hour (kWh)') }}</option>
+    </select>
 
-        <label for="to-unit">To</label>
-        <select id="to-unit" name="to_unit">
-          <option value="1" {% if to_unit == '1' %}selected{% endif %}>Joules (J)</option>
-          <option value="2" {% if to_unit == '2' %}selected{% endif %}>Kilojoules (kJ)</option>
-          <option value="3" {% if to_unit == '3' %}selected{% endif %}>Calories (cal)</option>
-          <option value="4" {% if to_unit == '4' %}selected{% endif %}>Kilocalories (kcal)</option>
-          <option value="5" {% if to_unit == '5' %}selected{% endif %}>Watt-hour (Wh)</option>
-          <option value="6" {% if to_unit == '6' %}selected{% endif %}>Kilowatt-hour (kWh)</option>
-        </select>
-  
-        <input
-          type="text"
-          id="to-value"
-          name="to_value"
-          placeholder="Converted value"
-          value="{{ short_result }}"
-          readonly
-        />
-      </div>
-    </form>
+    <label for="from-value">{{ _('Enter value') }}</label>
+    <input type="text" id="from-value" />
 
-    {% if desc_result %}
-    <div>
-      <p><em>Converted Value is:</em> <strong>{{ desc_result }}</strong></p>
+    <div class="button-row">
+      <button id="convert-btn">{{ _('Convert') }}</button>
+      <button id="clear-btn">{{ _('Clear') }}</button>
     </div>
-    {% endif %}
+
+    <label for="to-unit">{{ _('To') }}</label>
+    <select id="to-unit">
+      <option value="1">{{ _('Joules (J)') }}</option>
+      <option value="2">{{ _('Kilojoules (kJ)') }}</option>
+      <option value="3">{{ _('Calories (cal)') }}</option>
+      <option value="4">{{ _('Kilocalories (kcal)') }}</option>
+      <option value="5">{{ _('Watt-hour (Wh)') }}</option>
+      <option value="6">{{ _('Kilowatt-hour (kWh)') }}</option>
+    </select>
+
+    <label for="to-value">{{ _('Converted value') }}</label>
+    <input type="text" id="to-value" readonly />
+
+    <div id="result-message">
+      <p><em>{{ _('Converted Value is:') }}</em> <strong id="desc-result"></strong></p>
+    </div>
+
+    <div id="error-message">
+      <p><strong id="error-text"></strong></p>
+    </div>
   </section>
 </main>
-
 {% endblock body %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/converter.js') }}"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    initConverter('convert_energy');
+  });
+</script>
+{% endblock scripts %}

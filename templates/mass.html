@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    Mass converter
+    {{ _('Mass converter') }}
 {% endblock title %}
 
 {% block css %}
@@ -15,64 +15,56 @@
 {% block body %}
 <main>
   <section>
-    <h1 class="page-title">Mass Converter</h1>
-    <form method="POST" action="/Mass-page">
-      <div>
-        <label for="from-unit">From</label>
-        <select id="from-unit" name="from_unit">
-          <option value="1" {% if from_unit == '1' %}selected{% endif %}>Milligram (mg)</option>
-          <option value="2" {% if from_unit == '2' %}selected{% endif %}>Gram (g)</option>
-          <option value="3" {% if from_unit == '3' %}selected{% endif %}>Kilogram (kg)</option>
-          <option value="4" {% if from_unit == '4' %}selected{% endif %}>Metric Tonne (t)</option>
-          <option value="5" {% if from_unit == '5' %}selected{% endif %}>Ounce (oz)</option>
-          <option value="6" {% if from_unit == '6' %}selected{% endif %}>Pound (lb)</option>
-          <option value="7" {% if from_unit == '7' %}selected{% endif %}>Stone (st)</option>
-        </select>
-  
-        <input
-          type="text"
-          id="from-value"
-          name="from_value"
-          placeholder="Enter value"
-          required
-          value="{{ request.form.from_value if request.method == 'POST' else '' }}"
-        />
-  
-        <div class="button-row">
-          <button type="submit">Convert</button>
-          <a href="{{ url_for('Mass_page') }}">
-            <button type="button">Clear</button>
-          </a>
-        </div>
+    <h1 class="page-title">{{ _('Mass Converter') }}</h1>
+    <label for="from-unit">{{ _('From') }}</label>
+    <select id="from-unit">
+      <option value="1">{{ _('Milligram (mg)') }}</option>
+      <option value="2">{{ _('Gram (g)') }}</option>
+      <option value="3">{{ _('Kilogram (kg)') }}</option>
+      <option value="4">{{ _('Metric Tonne (t)') }}</option>
+      <option value="5">{{ _('Ounce (oz)') }}</option>
+      <option value="6">{{ _('Pound (lb)') }}</option>
+      <option value="7">{{ _('Stone (st)') }}</option>
+    </select>
 
-        <label for="to-unit">To</label>
-        <select id="to-unit" name="to_unit">
-          <option value="1" {% if to_unit == '1' %}selected{% endif %}>Milligram (mg)</option>
-          <option value="2" {% if to_unit == '2' %}selected{% endif %}>Gram (g)</option>
-          <option value="3" {% if to_unit == '3' %}selected{% endif %}>Kilogram (kg)</option>
-          <option value="4" {% if to_unit == '4' %}selected{% endif %}>Metric Tonne (t)</option>
-          <option value="5" {% if to_unit == '5' %}selected{% endif %}>Ounce (oz)</option>
-          <option value="6" {% if to_unit == '6' %}selected{% endif %}>Pound (lb)</option>
-          <option value="7" {% if to_unit == '7' %}selected{% endif %}>Stone (st)</option>
-        </select>
-  
-        <input
-          type="text"
-          id="to-value"
-          name="to_value"
-          placeholder="Converted value"
-          value="{{ short_result }}"
-          readonly
-        />
-      </div>
-    </form>
+    <label for="from-value">{{ _('Enter value') }}</label>
+    <input type="text" id="from-value" />
 
-    {% if desc_result %}
-    <div>
-      <p><em>Converted Value is:</em> <strong>{{ desc_result }}</strong></p>
+    <div class="button-row">
+      <button id="convert-btn">{{ _('Convert') }}</button>
+      <button id="clear-btn">{{ _('Clear') }}</button>
     </div>
-    {% endif %}
+
+    <label for="to-unit">{{ _('To') }}</label>
+    <select id="to-unit">
+      <option value="1">{{ _('Milligram (mg)') }}</option>
+      <option value="2">{{ _('Gram (g)') }}</option>
+      <option value="3">{{ _('Kilogram (kg)') }}</option>
+      <option value="4">{{ _('Metric Tonne (t)') }}</option>
+      <option value="5">{{ _('Ounce (oz)') }}</option>
+      <option value="6">{{ _('Pound (lb)') }}</option>
+      <option value="7">{{ _('Stone (st)') }}</option>
+    </select>
+
+    <label for="to-value">{{ _('Converted value') }}</label>
+    <input type="text" id="to-value" readonly />
+
+    <div id="result-message">
+      <p><em>{{ _('Converted Value is:') }}</em> <strong id="desc-result"></strong></p>
+    </div>
+
+    <div id="error-message">
+      <p><strong id="error-text"></strong></p>
+    </div>
   </section>
 </main>
-
 {% endblock body %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/converter.js') }}"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    initConverter('convert_mass');
+  });
+</script>
+{% endblock scripts %}

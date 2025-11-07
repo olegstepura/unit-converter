@@ -1,14 +1,7 @@
-def convert_mass(from_unit, to_unit, from_value):
-    print("\nMass/Weight Converter:")
-    print("Common Units:")
-    print("1. Milligram (mg)")
-    print("2. Gram (g)")
-    print("3. Kilogram (kg)")
-    print("4. Metric Tonne (t)")
-    print("5. Ounce (oz)")
-    print("6. Pound (lb)")
-    print("7. Stone (st)")
-
+def convert_mass(from_unit, to_unit, from_value, _=None):
+    if _ is None:
+        def _(s): return s
+    
     # Conversion rates from kilogram (base unit)
     units_in_kg = {
         1: 0.000001,     # mg to kg
@@ -21,23 +14,21 @@ def convert_mass(from_unit, to_unit, from_value):
     }
 
     unit_names = {
-        1: "Milligram (mg)",
-        2: "Gram (g)",
-        3: "Kilogram (kg)",
-        4: "Metric Tonne (t)",
-        5: "Ounce (oz)",
-        6: "Pound (lb)",
-        7: "Stone (st)"
+        1: _("Milligram (mg)"),
+        2: _("Gram (g)"),
+        3: _("Kilogram (kg)"),
+        4: _("Metric Tonne (t)"),
+        5: _("Ounce (oz)"),
+        6: _("Pound (lb)"),
+        7: _("Stone (st)")
     }
-
-    
 
     if from_unit in units_in_kg and to_unit in units_in_kg:
             value_in_kg = from_value * units_in_kg[from_unit]
             result = value_in_kg / units_in_kg[to_unit]
 
-            desc_result = f"{from_value} {unit_names[from_unit]} is equal to {result} {unit_names[to_unit]}"
+            desc_result = f"{from_value} {unit_names[from_unit]} {_('is equal to')} {result} {unit_names[to_unit]}"
             short_result = f"{result}"
             return desc_result, short_result
     else:
-        return "Invalid unit selection. Please choose from the available units." 
+        return _("Invalid unit selection. Please choose from the available units."), "" 

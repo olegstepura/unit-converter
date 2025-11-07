@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    Length converter
+    {{ _('Length converter') }}
 {% endblock title %}
 
 {% block css %}
@@ -15,71 +15,58 @@
 {% block body %}
 <main>
   <section>
-    <h1 class="page-title">Length Converter</h1>
-    <form method="POST" action="/Length-page">
-      <div>
-        <label for="from-unit">From</label>
-        <select id="from-unit" name="from_unit">
-          <option value="mm" {% if from_unit == 'mm' %}selected{% endif %}>Millimeter (mm)</option>
-          <option value="cm" {% if from_unit == 'cm' %}selected{% endif %}>Centimeter (cm)</option>
-          <option value="m" {% if from_unit == 'm' %}selected{% endif %}>Meter (m)</option>
-          <option value="km" {% if from_unit == 'km' %}selected{% endif %}>Kilometer (km)</option>
-          <option value="in" {% if from_unit == 'in' %}selected{% endif %}>Inch (in)</option>
-          <option value="ft" {% if from_unit == 'ft' %}selected{% endif %}>Foot (ft)</option>
-          <option value="yd" {% if from_unit == 'yd' %}selected{% endif %}>Yard (yd)</option>
-          <option value="mi" {% if from_unit == 'mi' %}selected{% endif %}>Mile (mi)</option>
-        </select>
+    <h1 class="page-title">{{ _('Length Converter') }}</h1>
+    <label for="from-unit">{{ _('From') }}</label>
+    <select id="from-unit">
+      <option value="mm">{{ _('Millimeter (mm)') }}</option>
+      <option value="cm">{{ _('Centimeter (cm)') }}</option>
+      <option value="m">{{ _('Meter (m)') }}</option>
+      <option value="km">{{ _('Kilometer (km)') }}</option>
+      <option value="in">{{ _('Inch (in)') }}</option>
+      <option value="ft">{{ _('Foot (ft)') }}</option>
+      <option value="yd">{{ _('Yard (yd)') }}</option>
+      <option value="mi">{{ _('Mile (mi)') }}</option>
+    </select>
 
-        <input
-          type="text"
-          id="from-value"
-          name="from_value"
-          placeholder="Enter value"
-          required
-          value="{{ request.form.from_value if request.method == 'POST' else '' }}"
-        />
+    <label for="from-value">{{ _('Enter value') }}</label>
+    <input type="text" id="from-value" />
 
-        <div class="button-row">
-          <button type="submit">Convert</button>
-          <a href="{{ url_for('Length_page') }}">
-            <button type="button">Clear</button>
-          </a>
-        </div>
-
-        <label for="to-unit">To</label>
-        <select id="to-unit" name="to_unit">
-          <option value="mm" {% if to_unit == 'mm' %}selected{% endif %}>Millimeter (mm)</option>
-          <option value="cm" {% if to_unit == 'cm' %}selected{% endif %}>Centimeter (cm)</option>
-          <option value="m" {% if to_unit == 'm' %}selected{% endif %}>Meter (m)</option>
-          <option value="km" {% if to_unit == 'km' %}selected{% endif %}>Kilometer (km)</option>
-          <option value="in" {% if to_unit == 'in' %}selected{% endif %}>Inch (in)</option>
-          <option value="ft" {% if to_unit == 'ft' %}selected{% endif %}>Foot (ft)</option>
-          <option value="yd" {% if to_unit == 'yd' %}selected{% endif %}>Yard (yd)</option>
-          <option value="mi" {% if to_unit == 'mi' %}selected{% endif %}>Mile (mi)</option>
-        </select>
-
-        <input
-          type="text"
-          id="to-value"
-          name="to_value"
-          placeholder="Converted value"
-          value="{{ short_result }}"
-          readonly
-        />
-      </div>
-    </form>
-
-    {% if desc_result %}
-    <div>
-      <p><em>Converted Value is:</em> <strong>{{ desc_result }}</strong></p>
+    <div class="button-row">
+      <button id="convert-btn">{{ _('Convert') }}</button>
+      <button id="clear-btn">{{ _('Clear') }}</button>
     </div>
-    {% endif %}
 
-    {% if error %}
-    <div style="color: red;">
-      <p><strong>{{ error }}</strong></p>
+    <label for="to-unit">{{ _('To') }}</label>
+    <select id="to-unit">
+      <option value="mm">{{ _('Millimeter (mm)') }}</option>
+      <option value="cm">{{ _('Centimeter (cm)') }}</option>
+      <option value="m">{{ _('Meter (m)') }}</option>
+      <option value="km">{{ _('Kilometer (km)') }}</option>
+      <option value="in">{{ _('Inch (in)') }}</option>
+      <option value="ft">{{ _('Foot (ft)') }}</option>
+      <option value="yd">{{ _('Yard (yd)') }}</option>
+      <option value="mi">{{ _('Mile (mi)') }}</option>
+    </select>
+
+    <label for="to-value">{{ _('Converted value') }}</label>
+    <input type="text" id="to-value" readonly />
+
+    <div id="result-message">
+      <p><em>{{ _('Converted Value is:') }}</em> <strong id="desc-result"></strong></p>
     </div>
-    {% endif %}
+
+    <div id="error-message">
+      <p><strong id="error-text"></strong></p>
+    </div>
   </section>
 </main>
 {% endblock body %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/converter.js') }}"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    initConverter('convert_length');
+  });
+</script>
+{% endblock scripts %}

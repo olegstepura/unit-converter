@@ -1,20 +1,14 @@
-def Convert_energy(from_unit,to_unit,from_value):
-    print("\nEnergy Converter:")
-    print("Units:")
-    print("1. Joules (J)")
-    print("2. Kilojoules (kJ)")
-    print("3. Calories (cal)")
-    print("4. Kilocalories (kcal)")
-    print("5. Watt-hour (Wh)")
-    print("6. Kilowatt-hour (kWh)")
-
+def Convert_energy(from_unit,to_unit,from_value, _=None):
+    if _ is None:
+        def _(s): return s
+    
     unit_names = {
-        1: "Joules (J)",
-        2: "Kilojoules (kJ)",
-        3: "Calories (cal)",
-        4: "Kilocalories (kcal)",
-        5: "Watt-hour (Wh)",
-        6: "Kilowatt-hour (kWh)"
+        1: _("Joules (J)"),
+        2: _("Kilojoules (kJ)"),
+        3: _("Calories (cal)"),
+        4: _("Kilocalories (kcal)"),
+        5: _("Watt-hour (Wh)"),
+        6: _("Kilowatt-hour (kWh)")
     }
 
     # Conversion rates to Joules (base unit)
@@ -34,9 +28,9 @@ def Convert_energy(from_unit,to_unit,from_value):
         value_in_joules = from_value * units_in_joules[from_unit]
         result = value_in_joules / units_in_joules[to_unit]
 
-        desc_result = f"{from_value} {unit_names[from_unit]} is equal to {result} {unit_names[to_unit]}"
+        desc_result = f"{from_value} {unit_names[from_unit]} {_('is equal to')} {result} {unit_names[to_unit]}"
         short_result = f"{result}"
         return desc_result, short_result
                 
     else:
-         return "Invalid unit selection. Please choose from the available units."
+         return _("Invalid unit selection. Please choose from the available units."), ""

@@ -1,14 +1,11 @@
-def Convert_temperature(from_unit, to_unit, from_value):
-    print("\nTemperature Converter:")
-    print("Common Units:")
-    print("1. Celsius (°C)")
-    print("2. Fahrenheit (°F)")
-    print("3. Kelvin (K)")
-
+def Convert_temperature(from_unit, to_unit, from_value, _=None):
+    if _ is None:
+        def _(s): return s
+    
     unit_names = {
-        1: "Celsius (°C)",
-        2: "Fahrenheit (°F)",
-        3: "Kelvin (K)"
+        1: _("Celsius (°C)"),
+        2: _("Fahrenheit (°F)"),
+        3: _("Kelvin (K)")
     }
 
     result = None
@@ -29,12 +26,8 @@ def Convert_temperature(from_unit, to_unit, from_value):
         result = (from_value - 273.15) * 9 / 5 + 32  # Kelvin to Fahrenheit
 
     if result is not None:
-        desc_result = f"{from_value} {unit_names[from_unit]} is equal to {result} {unit_names[to_unit]}"
+        desc_result = f"{from_value} {unit_names[from_unit]} {_('is equal to')} {result} {unit_names[to_unit]}"
         short_result = f"{result}"
         return desc_result, short_result
     else:
-        return "Invalid unit selection. Please choose from the available units."
-
-                
-
-            
+        return _("Invalid unit selection. Please choose from the available units."), ""

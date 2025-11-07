@@ -1,6 +1,10 @@
 # length.py
 
-def convert_length(from_unit, to_unit, from_value):
+def convert_length(from_unit, to_unit, from_value, _=None):
+    if _ is None:
+        # Fallback if no translation function provided
+        def _(s): return s
+    
     # Conversion rates from meter (base unit)
     units_in_meters = {
         "mm": 0.001,    # mm to meters
@@ -14,14 +18,14 @@ def convert_length(from_unit, to_unit, from_value):
     }
 
     unit_names = {
-        "mm": "Millimeter (mm)",
-        "cm": "Centimeter (cm)",
-        "m": "Meter (m)",
-        "km": "Kilometer (km)",
-        "in": "Inch (in)",
-        "ft": "Foot (ft)",
-        "yd": "Yard (yd)",
-        "mi": "Mile (mi)"
+        "mm": _("Millimeter (mm)"),
+        "cm": _("Centimeter (cm)"),
+        "m": _("Meter (m)"),
+        "km": _("Kilometer (km)"),
+        "in": _("Inch (in)"),
+        "ft": _("Foot (ft)"),
+        "yd": _("Yard (yd)"),
+        "mi": _("Mile (mi)")
     }
 
     if from_unit in units_in_meters and to_unit in units_in_meters:
@@ -32,9 +36,9 @@ def convert_length(from_unit, to_unit, from_value):
         result = value_in_meters / units_in_meters[to_unit]
 
         # Return the result and unit names
-        desc_result = f"{from_value} {unit_names[from_unit]} is equal to {result} {unit_names[to_unit]}"
+        desc_result = f"{from_value} {unit_names[from_unit]} {_('is equal to')} {result} {unit_names[to_unit]}"
         short_result = f"{result}"
         return desc_result, short_result
     else:
-        return "Invalid unit selection. Please choose from the available units."
+        return _("Invalid unit selection. Please choose from the available units."), ""
 

@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %} Home {% endblock title %}
+{% block title %} {{ _('Home') }} {% endblock title %}
 
 {% block css %}
   <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}?v=2">
@@ -10,18 +10,20 @@
 
 <main>
   <section>
-    <div><h2>what you wanna convert today</h2></div>
+    <div><h2>{{ _('Let\'s convert something') }}</h2></div>
     
-      <div ><a href="{{ url_for('Length_page') }}">Length/Distance</a></div>
-        <div><a href="{{ url_for('Mass_page') }}">Mass/Weight</a></div>
-          <div><a href="{{ url_for('Time_page') }}">Time</a></div>
-            <div><a href="{{ url_for('Temperature_page') }}">Temperature</a></div>
-              <div><a href="{{ url_for('Speed_page') }}">Speed</a></div>
-                <div><a href="{{ url_for('Volume_page') }}">Volume</a></div>
-                  <div><a href="{{ url_for('Area_page') }}">Area</a></div>
-                    <div><a href="{{ url_for('Data_page') }}">Data Storage</a></div>
-                      <div><a href="{{ url_for('Energy_page') }}">Energy</a></div>
-                        <div><a href="{{ url_for('Pressure_page') }}">Pressure</a></div>
+    <div><a href="{{ url_for('length') }}">{{ _('Length/Distance') }}</a></div>
+    <div><a href="{{ url_for('mass') }}">{{ _('Mass/Weight') }}</a></div>
+    <div><a href="{{ url_for('time') }}">{{ _('Time') }}</a></div>
+    <div><a href="{{ url_for('temperature') }}">{{ _('Temperature') }}</a></div>
+    <div><a href="{{ url_for('speed') }}">{{ _('Speed') }}</a></div>
+    <div><a href="{{ url_for('volume') }}">{{ _('Volume') }}</a></div>
+    <div><a href="{{ url_for('area') }}">{{ _('Area') }}</a></div>
+    <div><a href="{{ url_for('data_storage') }}">{{ _('Data Storage') }}</a></div>
+    <div><a href="{{ url_for('energy') }}">{{ _('Energy') }}</a></div>
+    <div><a href="{{ url_for('pressure') }}">{{ _('Pressure') }}</a></div>
+    <div><a href="{{ url_for('urlcode') }}">{{ _('URL Encode/Decode') }}</a></div>
+    <div><a href="{{ url_for('base64code') }}">{{ _('Base64 Encode/Decode') }}</a></div>
     
   </section>
 </main>

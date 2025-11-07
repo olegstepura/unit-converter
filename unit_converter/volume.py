@@ -1,28 +1,18 @@
-def Convert_volume(from_unit, to_unit, from_value):
-    print("\nVolume Converter:")
-    print("Units:")
-    print("1. Milliliters (ml)")
-    print("2. Liters (L)")
-    print("3. Cubic centimeters (cc)")
-    print("4. Cubic meters (m³)")
-    print("5. Teaspoon (tsp)")
-    print("6. Tablespoon (tbsp)")
-    print("7. Fluid ounces (fl oz)")
-    print("8. Cups")
-    print("9. Pints")
-    print("10. Gallons")
-
+def Convert_volume(from_unit, to_unit, from_value, _=None):
+    if _ is None:
+        def _(s): return s
+    
     unit_names = {
-        1: "Milliliters (ml)",
-        2: "Liters (L)",
-        3: "Cubic centimeters (cc)",
-        4: "Cubic meters (m³)",
-        5: "Teaspoon (tsp)",
-        6: "Tablespoon (tbsp)",
-        7: "Fluid ounces (fl oz)",
-        8: "Cups",
-        9: "Pints",
-        10: "Gallons"
+        1: _("Milliliters (ml)"),
+        2: _("Liters (L)"),
+        3: _("Cubic centimeters (cc)"),
+        4: _("Cubic meters (m³)"),
+        5: _("Teaspoon (tsp)"),
+        6: _("Tablespoon (tbsp)"),
+        7: _("Fluid ounces (fl oz)"),
+        8: _("Cups"),
+        9: _("Pints"),
+        10: _("Gallons")
     }
 
     # All conversions to Liters (base unit)
@@ -43,8 +33,8 @@ def Convert_volume(from_unit, to_unit, from_value):
         value_in_liters = from_value * units_in_liters[from_unit]
         result = value_in_liters / units_in_liters[to_unit]
 
-        desc_result = f"{from_value} {unit_names[from_unit]} is equal to {result} {unit_names[to_unit]}"
+        desc_result = f"{from_value} {unit_names[from_unit]} {_('is equal to')} {result} {unit_names[to_unit]}"
         short_result = f"{result}"
         return desc_result, short_result
     else:
-        return "Invalid unit selection. Please choose from the available units."
+        return _("Invalid unit selection. Please choose from the available units."), ""

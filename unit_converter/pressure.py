@@ -1,18 +1,13 @@
-def convert_pressure(from_unit, to_unit, from_value):
-    print("\nPressure Converter:")
-    print("Units:")
-    print("1. Pascal (Pa)")
-    print("2. Bar")
-    print("3. Atmosphere (atm)")
-    print("4. mmHg")
-    print("5. psi")
-
+def convert_pressure(from_unit, to_unit, from_value, _=None):
+    if _ is None:
+        def _(s): return s
+    
     unit_names = {
-        1: "Pascal (Pa)",
-        2: "Bar",
-        3: "Atmosphere (atm)",
-        4: "mmHg",
-        5: "psi"
+        1: _("Pascal (Pa)"),
+        2: _("Bar"),
+        3: _("Atmosphere (atm)"),
+        4: _("mmHg"),
+        5: _("psi")
     }
 
     # Conversion rates to Pascals (base unit)
@@ -29,9 +24,9 @@ def convert_pressure(from_unit, to_unit, from_value):
         value_in_pascals = from_value * units_in_pascals[from_unit]
         result = value_in_pascals / units_in_pascals[to_unit]
         
-        desc_result = f"{from_value} {unit_names[from_unit]} is equal to {result} {unit_names[to_unit]}"
+        desc_result = f"{from_value} {unit_names[from_unit]} {_('is equal to')} {result} {unit_names[to_unit]}"
         short_result = f"{result}"
         return desc_result, short_result
                 
     else:
-         return "Invalid unit selection. Please choose from the available units."
+         return _("Invalid unit selection. Please choose from the available units."), ""

@@ -1,0 +1,351 @@
+# Russian translations for Unit Converter
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: ru\n"
+
+msgid "Home"
+msgstr "Главная"
+
+msgid "Let's convert something"
+msgstr "Давайте что-нибудь конвертируем"
+
+msgid "Length/Distance"
+msgstr "Длина/Расстояние"
+
+msgid "Mass/Weight"
+msgstr "Масса/Вес"
+
+msgid "Time"
+msgstr "Время"
+
+msgid "Temperature"
+msgstr "Температура"
+
+msgid "Speed"
+msgstr "Скорость"
+
+msgid "Volume"
+msgstr "Объём"
+
+msgid "Area"
+msgstr "Площадь"
+
+msgid "Data Storage"
+msgstr "Хранилище данных"
+
+msgid "Energy"
+msgstr "Энергия"
+
+msgid "Pressure"
+msgstr "Давление"
+
+msgid "Length converter"
+msgstr "Конвертер длины"
+
+msgid "Length Converter"
+msgstr "Конвертер длины"
+
+msgid "Mass converter"
+msgstr "Конвертер массы"
+
+msgid "Mass Converter"
+msgstr "Конвертер массы"
+
+msgid "Time Converter"
+msgstr "Конвертер времени"
+
+msgid "Temperature Converter"
+msgstr "Конвертер температуры"
+
+msgid "Speed Converter"
+msgstr "Конвертер скорости"
+
+msgid "Volume Converter"
+msgstr "Конвертер объёма"
+
+msgid "Area Converter"
+msgstr "Конвертер площади"
+
+msgid "Data converter"
+msgstr "Конвертер данных"
+
+msgid "Data Size Converter"
+msgstr "Конвертер размера данных"
+
+msgid "Energy converter"
+msgstr "Конвертер энергии"
+
+msgid "Energy Converter"
+msgstr "Конвертер энергии"
+
+msgid "Pressure converter"
+msgstr "Конвертер давления"
+
+msgid "Pressure Converter"
+msgstr "Конвертер давления"
+
+msgid "From"
+msgstr "Из"
+
+msgid "To"
+msgstr "В"
+
+msgid "Enter value"
+msgstr "Введите значение"
+
+msgid "Converted value"
+msgstr "Конвертированное значение"
+
+msgid "Convert"
+msgstr "Конвертировать"
+
+msgid "Clear"
+msgstr "Очистить"
+
+msgid "Converted Value is:"
+msgstr "Конвертированное значение:"
+
+msgid "An error occurred during conversion"
+msgstr "Произошла ошибка при конвертации"
+
+msgid "Please enter a valid number"
+msgstr "Пожалуйста, введите корректное число"
+
+msgid "Millimeter (mm)"
+msgstr "Миллиметр (мм)"
+
+msgid "Centimeter (cm)"
+msgstr "Сантиметр (см)"
+
+msgid "Meter (m)"
+msgstr "Метр (м)"
+
+msgid "Kilometer (km)"
+msgstr "Километр (км)"
+
+msgid "Inch (in)"
+msgstr "Дюйм (дюйм)"
+
+msgid "Foot (ft)"
+msgstr "Фут (фт)"
+
+msgid "Yard (yd)"
+msgstr "Ярд (ярд)"
+
+msgid "Mile (mi)"
+msgstr "Миля (ми)"
+
+msgid "Milligram (mg)"
+msgstr "Миллиграмм (мг)"
+
+msgid "Gram (g)"
+msgstr "Грамм (г)"
+
+msgid "Kilogram (kg)"
+msgstr "Килограмм (кг)"
+
+msgid "Metric Tonne (t)"
+msgstr "Метрическая тонна (т)"
+
+msgid "Ounce (oz)"
+msgstr "Унция (унция)"
+
+msgid "Pound (lb)"
+msgstr "Фунт (фунт)"
+
+msgid "Stone (st)"
+msgstr "Стоун (ст)"
+
+msgid "Seconds"
+msgstr "Секунды"
+
+msgid "Minutes"
+msgstr "Минуты"
+
+msgid "Hours"
+msgstr "Часы"
+
+msgid "Days"
+msgstr "Дни"
+
+msgid "Weeks"
+msgstr "Недели"
+
+msgid "Months (30 days)"
+msgstr "Месяцы (30 дней)"
+
+msgid "Years (365 days)"
+msgstr "Годы (365 дней)"
+
+msgid "Celsius (°C)"
+msgstr "Цельсий (°C)"
+
+msgid "Fahrenheit (°F)"
+msgstr "Фаренгейт (°F)"
+
+msgid "Kelvin (K)"
+msgstr "Кельвин (K)"
+
+msgid "Meters per second (m/s)"
+msgstr "Метры в секунду (м/с)"
+
+msgid "Kilometers per hour (km/h)"
+msgstr "Километры в час (км/ч)"
+
+msgid "Miles per hour (mph)"
+msgstr "Мили в час (миль/ч)"
+
+msgid "Knots"
+msgstr "Узлы"
+
+msgid "Milliliters (ml)"
+msgstr "Миллилитры (мл)"
+
+msgid "Liters (L)"
+msgstr "Литры (л)"
+
+msgid "Cubic centimeters (cc)"
+msgstr "Кубические сантиметры (см³)"
+
+msgid "Cubic meters (m³)"
+msgstr "Кубические метры (м³)"
+
+msgid "Teaspoon (tsp)"
+msgstr "Чайная ложка (ч.л.)"
+
+msgid "Tablespoon (tbsp)"
+msgstr "Столовая ложка (ст.л.)"
+
+msgid "Fluid ounces (fl oz)"
+msgstr "Жидкие унции (жид. унция)"
+
+msgid "Cups"
+msgstr "Чашки"
+
+msgid "Pints"
+msgstr "Пинты"
+
+msgid "Gallons"
+msgstr "Галлоны"
+
+msgid "Square meter (m²)"
+msgstr "Квадратный метр (м²)"
+
+msgid "Square kilometer (km²)"
+msgstr "Квадратный километр (км²)"
+
+msgid "Square foot (ft²)"
+msgstr "Квадратный фут (фт²)"
+
+msgid "Square yard (yd²)"
+msgstr "Квадратный ярд (ярд²)"
+
+msgid "Acre"
+msgstr "Акр"
+
+msgid "Hectare"
+msgstr "Гектар"
+
+msgid "Bit"
+msgstr "Бит"
+
+msgid "Byte (B)"
+msgstr "Байт (Б)"
+
+msgid "Kilobyte (KB)"
+msgstr "Килобайт (КБ)"
+
+msgid "Megabyte (MB)"
+msgstr "Мегабайт (МБ)"
+
+msgid "Gigabyte (GB)"
+msgstr "Гигабайт (ГБ)"
+
+msgid "Terabyte (TB)"
+msgstr "Терабайт (ТБ)"
+
+msgid "Joules (J)"
+msgstr "Джоули (Дж)"
+
+msgid "Kilojoules (kJ)"
+msgstr "Килоджоули (кДж)"
+
+msgid "Calories (cal)"
+msgstr "Калории (кал)"
+
+msgid "Kilocalories (kcal)"
+msgstr "Килокалории (ккал)"
+
+msgid "Watt-hour (Wh)"
+msgstr "Ватт-час (Вт·ч)"
+
+msgid "Kilowatt-hour (kWh)"
+msgstr "Киловатт-час (кВт·ч)"
+
+msgid "Pascal (Pa)"
+msgstr "Паскаль (Па)"
+
+msgid "Bar"
+msgstr "Бар"
+
+msgid "Atmosphere (atm)"
+msgstr "Атмосфера (атм)"
+
+msgid "mmHg"
+msgstr "мм рт.ст."
+
+msgid "psi"
+msgstr "фунт/кв.дюйм"
+
+msgid "is equal to"
+msgstr "равно"
+
+msgid "Invalid unit selection. Please choose from the available units."
+msgstr "Неверный выбор единицы. Пожалуйста, выберите из доступных единиц."
+
+msgid "Months"
+msgstr "Месяцы"
+
+msgid "Years"
+msgstr "Годы"
+
+msgid "URL Encode/Decode"
+msgstr "URL Кодирование/Декодирование"
+
+msgid "Encode"
+msgstr "Кодировать"
+
+msgid "Decode"
+msgstr "Декодировать"
+
+msgid "Input"
+msgstr "Ввод"
+
+msgid "Output"
+msgstr "Вывод"
+
+msgid "Result:"
+msgstr "Результат:"
+
+msgid "An error occurred during encoding"
+msgstr "Произошла ошибка при кодировании"
+
+msgid "An error occurred during decoding"
+msgstr "Произошла ошибка при декодировании"
+
+msgid "Error encoding URL: {}"
+msgstr "Ошибка кодирования URL: {}"
+
+msgid "Error decoding URL: {}"
+msgstr "Ошибка декодирования URL: {}"
+
+msgid "Base64 Encode/Decode"
+msgstr "Base64 Кодирование/Декодирование"
+
+msgid "Error encoding to Base64: {}"
+msgstr "Ошибка кодирования в Base64: {}"
+
+msgid "Error decoding from Base64: {}"
+msgstr "Ошибка декодирования из Base64: {}"
+

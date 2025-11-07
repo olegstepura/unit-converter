@@ -1,20 +1,14 @@
-def convert_area(from_unit, to_unit, from_value):
-    print("\nArea Converter:")
-    print("Units:")
-    print("1. Square meter (m²)")
-    print("2. Square kilometer (km²)")
-    print("3. Square foot (ft²)")
-    print("4. Square yard (yd²)")
-    print("5. Acre")
-    print("6. Hectare")
-
+def convert_area(from_unit, to_unit, from_value, _=None):
+    if _ is None:
+        def _(s): return s
+    
     unit_names = {
-        1: "Square meter (m²)",
-        2: "Square kilometer (km²)",
-        3: "Square foot (ft²)",
-        4: "Square yard (yd²)",
-        5: "Acre",
-        6: "Hectare"
+        1: _("Square meter (m²)"),
+        2: _("Square kilometer (km²)"),
+        3: _("Square foot (ft²)"),
+        4: _("Square yard (yd²)"),
+        5: _("Acre"),
+        6: _("Hectare")
     }
 
     # All conversions to Square Meters (base unit)
@@ -33,10 +27,9 @@ def convert_area(from_unit, to_unit, from_value):
         value_in_square_meters = from_value * units_in_square_meters[from_unit]
         result = value_in_square_meters / units_in_square_meters[to_unit]
 
-        desc_result = f"{from_value} {unit_names[from_unit]} is equal to {result} {unit_names[to_unit]}"
+        desc_result = f"{from_value} {unit_names[from_unit]} {_('is equal to')} {result} {unit_names[to_unit]}"
         short_result = f"{result}"
         return desc_result, short_result
                 
     else:
-        return "Invalid unit selection. Please choose from the available units."
-
+        return _("Invalid unit selection. Please choose from the available units."), ""

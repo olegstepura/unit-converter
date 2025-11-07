@@ -24,36 +24,11 @@ header {
   font-weight: 700;
 }
 
-header::before,
-header::after {
-  content: '';
-  position: absolute;
-  width: 40px;
-  height: 40px;
-  background: #5d3a00;
-  border-radius: 50% 50% 0 0;
-  top: 0;
-}
-
-header::before {
-  left: 20px;
-}
-
-header::after {
-  right: 20px;
-}
-
 /* Responsive adjustments */
 @media (max-width: 768px) {
   header {
     font-size: 1.8rem;
     padding: 1.5rem;
-  }
-
-  header::before,
-  header::after {
-    width: 30px;
-    height: 30px;
   }
 }
 
@@ -61,13 +36,6 @@ header::after {
   header {
     font-size: 1.5rem;
     padding: 1.2rem;
-  }
-
-  header::before,
-  header::after {
-    width: 24px;
-    height: 24px;
-    top: 4px;
   }
 }
 
@@ -77,6 +45,7 @@ nav {
   margin-top: 0.5rem;
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
   gap: 1.5rem;
 }
@@ -121,24 +90,29 @@ nav a:hover::after {
   width: 100%;
 }
 
+/* Language Switcher */
+.language-switcher {
+  display: flex;
+  align-items: center;
+}
 
-/* Footer Styling */
-footer {
-  background: rgba(255, 245, 230, 0.95);
-  padding: 1.2rem;
-  text-align: center;
-  color: #5c3d2e;
-  font-size: 0.9rem;
-  border-top: 3px dashed #c08b5c;
+.language-switcher form {
+  display: flex;
+  align-items: center;
+}
+
+.language-switcher select 
+  padding: 5px;
+  font-size: 1rem;
+  border: 1px solid #8b5e3c;
+  border-radius: 4px;
+  background-color: white;
+  color: #5d3a00;
   font-family: 'Quicksand', sans-serif;
-  margin-top: 3rem;
+  cursor: pointer;
+  margin-top: 0;
 }
 
-.footer-container {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
 
 /* RESPONSIVE DESIGN */
 @media (max-width: 768px) {
@@ -155,10 +129,6 @@ footer {
   nav a {
     font-size: 1rem;
   }
-
-  footer {
-    font-size: 0.85rem;
-  }
 }
 
 @media (max-width: 480px) {
@@ -168,10 +138,6 @@ footer {
 
   nav a {
     font-size: 0.95rem;
-  }
-
-  footer {
-    padding: 0.8rem;
   }
 }
 

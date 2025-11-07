@@ -1,0 +1,351 @@
+# German translations for Unit Converter
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: de\n"
+
+msgid "Home"
+msgstr "Startseite"
+
+msgid "Let's convert something"
+msgstr "Lass uns etwas umrechnen"
+
+msgid "Length/Distance"
+msgstr "Länge/Entfernung"
+
+msgid "Mass/Weight"
+msgstr "Masse/Gewicht"
+
+msgid "Time"
+msgstr "Zeit"
+
+msgid "Temperature"
+msgstr "Temperatur"
+
+msgid "Speed"
+msgstr "Geschwindigkeit"
+
+msgid "Volume"
+msgstr "Volumen"
+
+msgid "Area"
+msgstr "Fläche"
+
+msgid "Data Storage"
+msgstr "Datenspeicher"
+
+msgid "Energy"
+msgstr "Energie"
+
+msgid "Pressure"
+msgstr "Druck"
+
+msgid "Length converter"
+msgstr "Längen-Umrechner"
+
+msgid "Length Converter"
+msgstr "Längen-Umrechner"
+
+msgid "Mass converter"
+msgstr "Massen-Umrechner"
+
+msgid "Mass Converter"
+msgstr "Massen-Umrechner"
+
+msgid "Time Converter"
+msgstr "Zeit-Umrechner"
+
+msgid "Temperature Converter"
+msgstr "Temperatur-Umrechner"
+
+msgid "Speed Converter"
+msgstr "Geschwindigkeits-Umrechner"
+
+msgid "Volume Converter"
+msgstr "Volumen-Umrechner"
+
+msgid "Area Converter"
+msgstr "Flächen-Umrechner"
+
+msgid "Data converter"
+msgstr "Daten-Umrechner"
+
+msgid "Data Size Converter"
+msgstr "Datengrößen-Umrechner"
+
+msgid "Energy converter"
+msgstr "Energie-Umrechner"
+
+msgid "Energy Converter"
+msgstr "Energie-Umrechner"
+
+msgid "Pressure converter"
+msgstr "Druck-Umrechner"
+
+msgid "Pressure Converter"
+msgstr "Druck-Umrechner"
+
+msgid "From"
+msgstr "Von"
+
+msgid "To"
+msgstr "Nach"
+
+msgid "Enter value"
+msgstr "Wert eingeben"
+
+msgid "Converted value"
+msgstr "Umgerechneter Wert"
+
+msgid "Convert"
+msgstr "Umrechnen"
+
+msgid "Clear"
+msgstr "Löschen"
+
+msgid "Converted Value is:"
+msgstr "Umgerechneter Wert ist:"
+
+msgid "An error occurred during conversion"
+msgstr "Bei der Umrechnung ist ein Fehler aufgetreten"
+
+msgid "Please enter a valid number"
+msgstr "Bitte geben Sie eine gültige Zahl ein"
+
+msgid "Millimeter (mm)"
+msgstr "Millimeter (mm)"
+
+msgid "Centimeter (cm)"
+msgstr "Zentimeter (cm)"
+
+msgid "Meter (m)"
+msgstr "Meter (m)"
+
+msgid "Kilometer (km)"
+msgstr "Kilometer (km)"
+
+msgid "Inch (in)"
+msgstr "Zoll (in)"
+
+msgid "Foot (ft)"
+msgstr "Fuß (ft)"
+
+msgid "Yard (yd)"
+msgstr "Yard (yd)"
+
+msgid "Mile (mi)"
+msgstr "Meile (mi)"
+
+msgid "Milligram (mg)"
+msgstr "Milligramm (mg)"
+
+msgid "Gram (g)"
+msgstr "Gramm (g)"
+
+msgid "Kilogram (kg)"
+msgstr "Kilogramm (kg)"
+
+msgid "Metric Tonne (t)"
+msgstr "Metrische Tonne (t)"
+
+msgid "Ounce (oz)"
+msgstr "Unze (oz)"
+
+msgid "Pound (lb)"
+msgstr "Pfund (lb)"
+
+msgid "Stone (st)"
+msgstr "Stone (st)"
+
+msgid "Seconds"
+msgstr "Sekunden"
+
+msgid "Minutes"
+msgstr "Minuten"
+
+msgid "Hours"
+msgstr "Stunden"
+
+msgid "Days"
+msgstr "Tage"
+
+msgid "Weeks"
+msgstr "Wochen"
+
+msgid "Months (30 days)"
+msgstr "Monate (30 Tage)"
+
+msgid "Years (365 days)"
+msgstr "Jahre (365 Tage)"
+
+msgid "Celsius (°C)"
+msgstr "Celsius (°C)"
+
+msgid "Fahrenheit (°F)"
+msgstr "Fahrenheit (°F)"
+
+msgid "Kelvin (K)"
+msgstr "Kelvin (K)"
+
+msgid "Meters per second (m/s)"
+msgstr "Meter pro Sekunde (m/s)"
+
+msgid "Kilometers per hour (km/h)"
+msgstr "Kilometer pro Stunde (km/h)"
+
+msgid "Miles per hour (mph)"
+msgstr "Meilen pro Stunde (mph)"
+
+msgid "Knots"
+msgstr "Knoten"
+
+msgid "Milliliters (ml)"
+msgstr "Milliliter (ml)"
+
+msgid "Liters (L)"
+msgstr "Liter (L)"
+
+msgid "Cubic centimeters (cc)"
+msgstr "Kubikzentimeter (cm³)"
+
+msgid "Cubic meters (m³)"
+msgstr "Kubikmeter (m³)"
+
+msgid "Teaspoon (tsp)"
+msgstr "Teelöffel (TL)"
+
+msgid "Tablespoon (tbsp)"
+msgstr "Esslöffel (EL)"
+
+msgid "Fluid ounces (fl oz)"
+msgstr "Flüssigunzen (fl oz)"
+
+msgid "Cups"
+msgstr "Tassen"
+
+msgid "Pints"
+msgstr "Pints"
+
+msgid "Gallons"
+msgstr "Gallonen"
+
+msgid "Square meter (m²)"
+msgstr "Quadratmeter (m²)"
+
+msgid "Square kilometer (km²)"
+msgstr "Quadratkilometer (km²)"
+
+msgid "Square foot (ft²)"
+msgstr "Quadratfuß (ft²)"
+
+msgid "Square yard (yd²)"
+msgstr "Quadratyard (yd²)"
+
+msgid "Acre"
+msgstr "Morgen"
+
+msgid "Hectare"
+msgstr "Hektar"
+
+msgid "Bit"
+msgstr "Bit"
+
+msgid "Byte (B)"
+msgstr "Byte (B)"
+
+msgid "Kilobyte (KB)"
+msgstr "Kilobyte (KB)"
+
+msgid "Megabyte (MB)"
+msgstr "Megabyte (MB)"
+
+msgid "Gigabyte (GB)"
+msgstr "Gigabyte (GB)"
+
+msgid "Terabyte (TB)"
+msgstr "Terabyte (TB)"
+
+msgid "Joules (J)"
+msgstr "Joule (J)"
+
+msgid "Kilojoules (kJ)"
+msgstr "Kilojoule (kJ)"
+
+msgid "Calories (cal)"
+msgstr "Kalorien (cal)"
+
+msgid "Kilocalories (kcal)"
+msgstr "Kilokalorien (kcal)"
+
+msgid "Watt-hour (Wh)"
+msgstr "Wattstunde (Wh)"
+
+msgid "Kilowatt-hour (kWh)"
+msgstr "Kilowattstunde (kWh)"
+
+msgid "Pascal (Pa)"
+msgstr "Pascal (Pa)"
+
+msgid "Bar"
+msgstr "Bar"
+
+msgid "Atmosphere (atm)"
+msgstr "Atmosphäre (atm)"
+
+msgid "mmHg"
+msgstr "mmHg"
+
+msgid "psi"
+msgstr "psi"
+
+msgid "is equal to"
+msgstr "ist gleich"
+
+msgid "Invalid unit selection. Please choose from the available units."
+msgstr "Ungültige Einheitenauswahl. Bitte wählen Sie aus den verfügbaren Einheiten."
+
+msgid "Months"
+msgstr "Monate"
+
+msgid "Years"
+msgstr "Jahre"
+
+msgid "URL Encode/Decode"
+msgstr "URL Kodieren/Dekodieren"
+
+msgid "Encode"
+msgstr "Kodieren"
+
+msgid "Decode"
+msgstr "Dekodieren"
+
+msgid "Input"
+msgstr "Eingabe"
+
+msgid "Output"
+msgstr "Ausgabe"
+
+msgid "Result:"
+msgstr "Ergebnis:"
+
+msgid "An error occurred during encoding"
+msgstr "Bei der Kodierung ist ein Fehler aufgetreten"
+
+msgid "An error occurred during decoding"
+msgstr "Bei der Dekodierung ist ein Fehler aufgetreten"
+
+msgid "Error encoding URL: {}"
+msgstr "Fehler beim Kodieren der URL: {}"
+
+msgid "Error decoding URL: {}"
+msgstr "Fehler beim Dekodieren der URL: {}"
+
+msgid "Base64 Encode/Decode"
+msgstr "Base64 Kodieren/Dekodieren"
+
+msgid "Error encoding to Base64: {}"
+msgstr "Fehler beim Kodieren zu Base64: {}"
+
+msgid "Error decoding from Base64: {}"
+msgstr "Fehler beim Dekodieren von Base64: {}"
+
