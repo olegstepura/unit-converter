@@ -21,7 +21,6 @@ def internal_server_error(e):
 
 
 @app.route("/")
-@app.route("/Home")
 def home():
     return render_template('index.html')
 

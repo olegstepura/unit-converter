@@ -7,7 +7,7 @@
 {% block css %}
 <link
   rel="stylesheet"
-  href="{{ url_for('static', filename='css/converter.css') }}?v=2"
+  href="{{ url_for('static', filename='css/converter.css') }}?v=3"
 />
 {% endblock css %}
 
@@ -28,6 +28,7 @@
     <textarea id="output-text" rows="5" readonly class="url-textarea url-textarea-output"></textarea>
 
     <div id="result-message" style="display: none;">
+      {% include '_copy_button.html' %}
       <p><em>{{ _('Result:') }}</em> <strong id="desc-result"></strong></p>
     </div>
 
@@ -42,63 +43,7 @@
 <script src="{{ url_for('static', filename='js/converter.js') }}"></script>
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    const encodeBtn = document.getElementById('encode-btn');
-    const decodeBtn = document.getElementById('decode-btn');
-    const inputText = document.getElementById('input-text');
-    const outputText = document.getElementById('output-text');
-    const resultMessage = document.getElementById('result-message');
-    const descResult = document.getElementById('desc-result');
-    const errorMessage = document.getElementById('error-message');
-    const errorText = document.getElementById('error-text');
-    
-    let currentMode = 'encode';
-
-    function setMode(mode) {
-      currentMode = mode;
-      if (mode === 'encode') {
-        encodeBtn.classList.add('active');
-        decodeBtn.classList.remove('active');
-      } else {
-        decodeBtn.classList.add('active');
-        encodeBtn.classList.remove('active');
-      }
-      // Clear output when switching modes
-      outputText.value = '';
-      resultMessage.style.display = 'none';
-      errorMessage.style.display = 'none';
-    }
-
-    encodeBtn.addEventListener('click', () => setMode('encode'));
-    decodeBtn.addEventListener('click', () => setMode('decode'));
-
-    function performConversion() {
-      const text = inputText.value.trim();
-      if (!text) {
-        outputText.value = '';
-        resultMessage.style.display = 'none';
-        errorMessage.style.display = 'none';
-        return;
-      }
-
-      const eventName = currentMode === 'encode' ? 'base64_encode' : 'base64_decode';
-      socket.emit(eventName, { text: text });
-    }
-
-    socket.on('base64code_result', function(data) {
-      if (data.success) {
-        outputText.value = data.result;
-        descResult.textContent = data.result;
-        resultMessage.style.display = 'block';
-        errorMessage.style.display = 'none';
-      } else {
-        errorText.textContent = data.error || (typeof translations !== 'undefined' ? translations.error_occurred : 'An error occurred');
-        errorMessage.style.display = 'block';
-        resultMessage.style.display = 'none';
-        outputText.value = '';
-      }
-    });
-
-    inputText.addEventListener('input', performConversion);
+    initEncoderDecoder('base64_encode', 'base64_decode', 'base64code_result');
   });
 </script>
 {% endblock scripts %}

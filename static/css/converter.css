@@ -115,6 +115,41 @@ body {
     background-color: #e8f5e9;
     border-radius: 4px;
     display: none;
+    position: relative;
+  }
+
+  #result-message p {
+    margin: 0;
+    padding-right: 2.5rem;
+  }
+
+  .copy-btn {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+  }
+
+  .copy-btn:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  .copy-btn svg {
+    width: 20px;
+    height: 20px;
+    fill: #5d3a00;
+  }
+
+  .copy-btn:active {
+    transform: scale(0.95);
   }
 
   #error-message {

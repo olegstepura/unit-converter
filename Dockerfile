@@ -37,5 +37,5 @@ EXPOSE 5000
 # --log-level warning: Only show warnings and errors
 # --access-logfile -: Disable access logs
 # --error-logfile -: Send errors to stdout
-CMD ["gunicorn", "--worker-class", "eventlet", "-w", "1", "--bind", "0.0.0.0:5000", "--timeout", "120", "--log-level", "error", "--access-logfile", "-", "--error-logfile", "-", "wsgi:application"]
+CMD ["gunicorn", "--worker-class", "eventlet", "-w", "1", "--bind", "0.0.0.0:5000", "--timeout", "120", "--log-level", "error", "--access-logfile", "-", "--error-logfile", "/dev/null", "wsgi:application"]
 

@@ -7,7 +7,7 @@
 {% block css %}
 <link
   rel="stylesheet"
-  href="{{ url_for('static', filename='css/converter.css') }}?v=2"
+  href="{{ url_for('static', filename='css/converter.css') }}?v=3"
 />
 
 {% endblock css %}
@@ -51,6 +51,7 @@
     <input type="text" id="to-value" readonly />
 
     <div id="result-message">
+      {% include '_copy_button.html' %}
       <p><em>{{ _('Converted Value is:') }}</em> <strong id="desc-result"></strong></p>
     </div>
 

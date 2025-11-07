@@ -54,6 +54,7 @@ logging.getLogger('socketio').setLevel(logging.CRITICAL)
 logging.getLogger('engineio').setLevel(logging.CRITICAL)
 logging.getLogger('eventlet').setLevel(logging.ERROR)
 logging.getLogger('eventlet.wsgi').setLevel(logging.ERROR)
+logging.getLogger('eventlet.wsgi.server').setLevel(logging.ERROR)
 logging.getLogger('werkzeug').setLevel(logging.WARNING)
 
 # Suppress gunicorn verbose logs
@@ -65,45 +66,23 @@ logging.getLogger('gunicorn.access').setLevel(logging.WARNING)
 logging.getLogger('urllib3').setLevel(logging.WARNING)
 logging.getLogger('requests').setLevel(logging.WARNING)
 
-# Filter out "Bad file descriptor" and socket shutdown errors
-class BadFileDescriptorFilter(logging.Filter):
-    def filter(self, record):
-        msg = str(record.getMessage())
-        # Filter out various forms of these errors
-        if 'Bad file descriptor' in msg:
-            return False
-        if 'socket shutdown error' in msg:
-            return False
-        if '[Errno 9]' in msg and 'Bad file descriptor' in msg:
-            return False
-        if 'socket.io' in msg.lower() and ('shutdown' in msg.lower() or 'errno 9' in msg.lower()):
-            return False
-        return True
-
-bad_fd_filter = BadFileDescriptorFilter()
-# Apply filter to all loggers
-logging.getLogger().addFilter(bad_fd_filter)
-logging.getLogger('socketio').addFilter(bad_fd_filter)
-logging.getLogger('engineio').addFilter(bad_fd_filter)
-logging.getLogger('eventlet').addFilter(bad_fd_filter)
-logging.getLogger('eventlet.wsgi').addFilter(bad_fd_filter)
-logging.getLogger('gunicorn.error').addFilter(bad_fd_filter)
-
 # Set root logger to WARNING to suppress INFO and DEBUG messages
 logging.basicConfig(level=logging.WARNING, format='%(levelname)s: %(message)s')
 
 # Initialize SocketIO with custom path
-socketio = SocketIO(app, cors_allowed_origins="*", logger=False, engineio_logger=False, path="/convert")
-
-# Handle disconnections gracefully
-@socketio.on('disconnect')
-def handle_disconnect():
-    try:
-        pass
-    except (OSError, IOError) as e:
-        # Silently ignore socket errors on disconnect
-        if 'Bad file descriptor' not in str(e) and 'Errno 9' not in str(e):
-            pass
+# Note: The socketio object is a manager, not a socket itself, so it can be reused.
+# The errno 9 errors come from eventlet's cleanup of individual client socket connections
+# during disconnection, not from reusing the socketio manager object.
+socketio = SocketIO(
+    app, 
+    cors_allowed_origins="*", 
+    logger=False, 
+    engineio_logger=False, 
+    path="/convert",
+    async_mode='eventlet',  # Keep eventlet for production with gunicorn
+    ping_timeout=60,
+    ping_interval=25
+)
 
 from unit_converter import route
 

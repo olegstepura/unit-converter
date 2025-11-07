@@ -6,6 +6,11 @@
   <title>{% block title %}
     
   {% endblock title %}</title>
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+  <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon.svg') }}">
+  <link rel="apple-touch-icon" href="{{ url_for('static', filename='apple-touch-icon.png') }}">
+  <link rel="manifest" href="{{ url_for('static', filename='site.webmanifest') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/nav.css') }}?v=2">
   {% block css %}
     
@@ -14,7 +19,7 @@
 <body>
   <header>
     <nav>
-      <a href="{{ url_for('home') }}">{{ _('Home') }}</a>
+      <a href="/">{{ _('Home') }}</a>
       <div class="language-switcher">
         <form method="POST" action="{{ url_for('set_language') }}">
           <select name="language" onchange="this.form.submit()">
