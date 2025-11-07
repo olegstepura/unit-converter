@@ -6,7 +6,7 @@ A modern unit conversion web application built with **Python**, **Flask**, and *
 
 ## 🌍 Live Demo
 
-🔗 Try it now: [Unit Converter](https://unit-converter-olegstepura.vercel.app)
+🔗 Try it now: [Unit Converter](https://convert.cdstudio.org)
 
 ---
 
@@ -33,6 +33,8 @@ A modern unit conversion web application built with **Python**, **Flask**, and *
 * 💾 **Data Storage** – bit, byte, KB, MB, GB, TB
 * 🔋 **Energy** – J, kJ, cal, kcal, Wh, kWh
 * 🌬 **Pressure** – Pa, bar, atm, mmHg, psi
+* 🔗 **URL Encode/Decode** – Encode and decode URL-encoded strings
+* 📦 **Base64 Encode/Decode** – Encode and decode Base64 strings
 
 ---
 
@@ -82,6 +84,13 @@ A modern unit conversion web application built with **Python**, **Flask**, and *
 
 ### Docker Deployment
 
+**Pull the pre-built image:**
+```bash
+docker pull ghcr.io/olegstepura/unit-converter:latest
+docker run -p 5000:5000 ghcr.io/olegstepura/unit-converter:latest
+```
+
+**Or build locally:**
 ```bash
 docker build -t unit-converter .
 docker run -p 5000:5000 unit-converter
@@ -144,14 +153,6 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ## 📝 License
 
 This project is open source and available for use and modification.
-
----
-
-## 👤 Author
-
-**Oleg Stepura**
-
-* GitHub: [@olegstepura](https://github.com/olegstepura)
 
 ---
 
